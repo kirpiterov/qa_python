@@ -22,7 +22,14 @@ class TestBooksCollector:
 
     # напиши свои тесты ниже
     # чтобы тесты были независимыми в каждом из них создавай отдельный экземпляр класса BooksCollector()
+
+    #Тест 2. При добавлении одной и той же книги дважды - книга должна быть добавлена 1 раз.
     def test_add_new_book_add_one_book_twice_gives_1(self,book):
         book.add_new_book('Double')
         book.add_new_book('Double')
         assert len(book.get_books_genre()) == 1
+
+    # Тест 3. При добавлении книги "без названия" (т.е. 0 символов) - должно быть добавлено 0 книг.
+    def test_add_new_book_add_book_without_name_gives_0(self,book):
+        book.add_new_book('')
+        assert len(book.get_books_genre()) == 0
